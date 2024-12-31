@@ -1,0 +1,183 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at center, #2c3e50, #1a252f);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#card {
+    position: relative;
+    text-align: center;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transform: scale(0.7) rotateX(70deg);
+    animation: cardEnter 1.2s forwards ease-out;
+    z-index: 2;
+}
+
+@keyframes cardEnter {
+    0% {
+        transform: scale(0.5) rotateX(70deg);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1) rotateX(0deg);
+        opacity: 1;
+    }
+}
+
+h1 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+button {
+    padding: 14px 30px;
+    font-size: 1.1rem;
+    color: white;
+    background: linear-gradient(135deg, #ff6a88, #ff8e53);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+    box-shadow: 0 6px 18px rgba(255, 108, 136, 0.4);
+}
+
+button:hover {
+    transform: translateY(-8px);
+    background: linear-gradient(135deg, #e75a76, #e06a47);
+}
+
+#message {
+    font-size: 3.5rem;
+    margin-top: 25px;
+    display: none;
+    background: -webkit-linear-gradient(#ffe53b, #ff2525);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transform: translateY(60px);
+}
+
+.fade-in {
+    animation: fadeIn 1.8s ease-in-out forwards, slideUp 1.8s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(60px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.fireworks {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.bomb {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, #ff6347, #a40000);
+    border-radius: 50%;
+    animation: bombExplosion 2s ease-out forwards;
+}
+
+@keyframes bombExplosion {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(4);
+        opacity: 0.9;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+.spark {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: yellow;
+    border-radius: 50%;
+    animation: sparkMove 1s ease-out forwards;
+}
+
+@keyframes sparkMove {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(30px, -30px) scale(0.5);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    #card {
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    #message {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #card {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+
+    #message {
+        font-size: 2rem;
+    }
+}
